@@ -7,6 +7,17 @@ sidebar_position: 2
 
 It is possible to mount S3 Object Storage to your VPS/VDS or personal computer. This way you can access the files and folders of your S3 Object Storage like a local drive. This makes usage more convenient.
 
+:::danger Filesystem Caveats
+Please note that that a mounted Object Storage bucket doesn't always behave like a normal POSIX file system. Depending on how your application is accessing files, you may encounter issues like:
+
+* no/wrong file system usage statistics
+* sub-par performance
+* unexpected unmounts
+* duplicate writes leading to hidden objects that occupy space but are invisible to S3 API requests
+
+If possible, using other tools like [rclone](/docs/products/Object-Storage/Tools/rclone) to access Object Storage is recommended.
+:::
+
 All you will need is:
 
 * `access_key`
@@ -22,6 +33,13 @@ For `access_key`, `secret_key` and the S3 URL please check [here](/docs/products
 * S3 URL = https://eu2.contabostorage.com
 
 ## Linux
+
+:::warning rsync usage
+The following parameters are recommend when transferring files via rsync to a mounted Object Storage:
+`rsync -W --inplace --size-only`
+
+This will avoid unnecessary file transfers. If this is you main use case, please also check if [rclone](/docs/products/Object-Storage/Tools/rclone) is an option for you.
+:::
 
 ### goofys
 

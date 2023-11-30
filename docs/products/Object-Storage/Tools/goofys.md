@@ -4,6 +4,17 @@ sidebar_position: 6
 
 # Goofys
 
+:::danger Filesystem Caveats
+Please note that that a mounted Object Storage bucket doesn't always behave like a normal POSIX file system. Depending on how your application is accessing files, you may encounter issues like:
+
+* no/wrong file system usage statistics
+* sub-par performance
+* unexpected unmounts
+* duplicate writes leading to hidden objects that occupy space but are invisible to S3 API requests
+
+If possible, using other tools like [rclone](/docs/products/Object-Storage/Tools/rclone) to access Object Storage is recommended.
+:::
+
 [Goofys](https://github.com/kahing/goofys) is another S3 file system tool for Linux and macOS. It provides the same functionality as [s3fs-fuse](/docs/products/Object-Storage/Tools/s3fs-fuse) but with better performance.
 
 Please follow the installation instruction like described on [Installation](https://github.com/kahing/goofys#installation)

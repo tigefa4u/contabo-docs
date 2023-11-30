@@ -4,6 +4,17 @@ sidebar_position: 7
 
 # s3fs-fuse
 
+:::danger Filesystem Caveats
+Please note that that a mounted Object Storage bucket doesn't always behave like a normal POSIX file system. Depending on how your application is accessing files, you may encounter issues like:
+
+* no/wrong file system usage statistics
+* sub-par performance
+* unexpected unmounts
+* duplicate writes leading to hidden objects that occupy space but are invisible to S3 API requests
+
+If possible, using other tools like [rclone](/docs/products/Object-Storage/Tools/rclone) to access Object Storage is recommended.
+:::
+
 Using [s3fs-fuse](https://github.com/s3fs-fuse/s3fs-fuse) you can mount a bucket of your S3 compatible Object Storage as a folder on Linux, macOS and FreeBSD machine.
 
 Please follow the installation instruction like described on [s3fs-fuse](https://github.com/s3fs-fuse/s3fs-fuse).

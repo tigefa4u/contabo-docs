@@ -49,12 +49,13 @@ for bucket in response['Buckets']:
     print(bucket['Name'])
 
 # list bucket contents, optionally filtered by prefix=path
-response = s3.list_objects_v2(Bucket='<bucket_name>', Prefix='')
+bucket_name = "<bucket_name>"
+response = s3.list_objects_v2(Bucket=bucket_name, Prefix='')
 for file in response['Contents']:
   signed_url = s3.generate_presigned_url(ClientMethod='get_object', Params={'Bucket': bucket_name, 'Key': file['Key']})
   name = path.basename(file['Key'])
   size = humanize.naturalsize(file["Size"])
-  print(name, size, url)
+  print(name, size, signed_url)
 ```
 
 using [s3fs](https://s3fs.readthedocs.io/en/latest/#s3-compatible-storage)

@@ -6,6 +6,10 @@ sidebar_position: 1
 
 Custom Images are images to be used to install Cloud VPS or VDS. These Custom Images are not provided by Contabo but are provided by the customer. Please note that a paid addon is required to upload and use Custom Images. It allows you to upload up to 25 GB of Custom Images (which can be extended of course).
 
+:::warning Limits
+The maximum supported image size is 100 GB. Images exceeding 100 GB will fail to install on a Cloud VPS or VDS.
+:::
+
 :::note Intended Use of Custom Images
 Please note that the **only** usage of Custom Images is to **install** Cloud VPS or VDS with a new operating system.
 

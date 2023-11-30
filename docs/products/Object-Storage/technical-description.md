@@ -33,7 +33,7 @@ Limitation is performed to assure good and fair performance for all users of the
 
 The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) are used to specify resources like users.
 
-In case you are e.g. building up your own polcies you might have the need to specify users like e.g. [Restricting Users to Buckets](/docs/products/Object-Storage/HowTo/restricting-user-bucket)
+In case you are e.g. building up your own policies you might have the need to specify users like e.g. [Restricting Users to Buckets](/docs/products/Object-Storage/HowTo/restricting-user-bucket)
 
 ### ARN Format for Customer (Main User)
 
